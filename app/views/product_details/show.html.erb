@@ -1,6 +1,6 @@
 <div class="col-lg-9">
-  <div class="card mt-4">
-    <%= image_tag @product.image, class:"img-fluid text-center image-mini", title:"#{@product.product_description}" %>
+  <div class="card mt-5">
+    <%= image_tag @product.image, class:"img-fluid", title:"#{@product.product_description}" %>
     <div class="card-body">
       <h3 class="card-title text-center"><%= @product.product_code %> - <%= @product.product_description %></h3>
       <h4 class="text-center mb-2">Dados Cadastrais</h4>
@@ -26,14 +26,16 @@
       Produtos Simulares
     </div>
     <div class="card-body">
-    <% if @product.generics.present? %>
-      <% @product.generics.each do |generic| %>
+      <% if @product.generics.present? %>
+        <% @product.generics.each do |generic| %>
           <%= generic.product_description %>
+        <% end %>
+      <% else %>
+        <h4>Não Possui</h4>
       <% end %>
-    <% else %>
-      <h4>Não Possui</h4>
-    <% end %>
-      </div>
     </div>
-    <!-- /.card -->
   </div>
+  <div class="text-center">
+    <%= link_to 'Voltar', root_path, class:"btn btn-secondary mt-2 mb-4 p-3 " %>
+  </div>
+</div>
