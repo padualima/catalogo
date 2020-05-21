@@ -50,7 +50,7 @@ class Dashboard::ProductsController < DashboardController
   end
 
   def products_params
-    params.require(:product).permit(:product_code, :product_description, :product_ean, :product_dun, :status,
-     :releases, :family_id, :tax_classification_id, :group_id, :generic_father_id, :image)
+    params.require(:product).permit(:product_code, :product_description, :product_ean, :product_dun, :display_ean, :status,
+     :releases, :family_id, :tax_classification_id, :group_id, :generic_id, :image)
   end
 end

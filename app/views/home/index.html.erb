@@ -1,1 +1,18 @@
-<button class="btn btn-success">Aqui é um notçao</button>
+
+<div class="col-lg-9">
+  <div class="row mt-5">
+    <% @products.each do |product| %>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <a href="#"> <%= image_tag product.image, class:"img-fluid image-mini", title:"#{product.product_description}" %></a>
+          <div class="card-body">
+            <h5 class="card-title text-center">
+              <%= link_to product.product_description, product_detail_path(product) %>
+            </h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

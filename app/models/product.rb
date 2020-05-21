@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   belongs_to :tax_classification
 
   has_many :generics, class_name: 'Product', foreign_key: 'generic_id'
-  belongs_to :generic_father, class_name: 'Product', optional: true
+  belongs_to :generic, class_name: 'Product', optional: true
 
   has_one_attached :image
 
@@ -24,4 +24,6 @@ class Product < ApplicationRecord
       end
     end
   end
+
+  scope :releases_home, -> {where(releases: true)}
 end

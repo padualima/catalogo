@@ -15,7 +15,8 @@ select{
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-input#product_status.form-control{
-  color:red;
-  padding: 60px !important;
+.image-mini{
+  height: 350px;
+  align-items: center;
+  width: 350px;
 }
