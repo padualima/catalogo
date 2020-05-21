@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   belongs_to :group
   belongs_to :tax_classification
 
-  has_many :generics, class_name: 'Product', foreign_key: 'generic_father_id'
+  has_many :generics, class_name: 'Product', foreign_key: 'generic_id'
   belongs_to :generic_father, class_name: 'Product', optional: true
 
   has_one_attached :image
