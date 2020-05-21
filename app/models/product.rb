@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
-  #validates :product_code, :product_description, #:product_ean, :product_dun, :status, :releases, presence: true
-  #validates :product_code, :product_description, #:product_ean, :product_dun, :status, :releases, uniqueness: true
+  validates :product_code, :product_description, :product_ean, :product_dun, presence: true
+  validates :product_code, :product_description, :product_ean, :product_dun, uniqueness: true
 
   belongs_to :family
   belongs_to :group

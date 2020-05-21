@@ -3,8 +3,8 @@ class CreateProducts < ActiveRecord::Migration[5.2]
     create_table :products do |t|
       t.integer :product_code
       t.string :product_description
-      t.integer :product_ean
-      t.integer :product_dun
+      t.string :product_ean
+      t.string :product_dun
       t.references :tax_classification, foreign_key: true
       t.references :group, foreign_key: true
       t.references :family, foreign_key: true

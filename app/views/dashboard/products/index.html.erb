@@ -23,13 +23,7 @@
             <th scope="row"><%= product.id %></th>
             <td><%= product.group.group_description %></td>
             <td><%= product.family.family_description %></td>
-            <td>
-            <% if product.generics.present? %>
-              <% product.generics.each do |generic| %>
-                <%= generic.product_description %>
-              <% end %>
-            <% end %>
-            </td>
+            <td><%= product.product_code %></td>
             <td><%= product.product_description %></td>
             <td><%= link_to 'Editar', edit_dashboard_product_path(product), class:"btn btn-secondary" %></td>
           </tr>

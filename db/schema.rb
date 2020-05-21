@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 2020_05_21_132739) do
   create_table "products", force: :cascade do |t|
     t.integer "product_code"
     t.string "product_description"
-    t.integer "product_ean"
-    t.integer "product_dun"
+    t.string "product_ean"
+    t.string "product_dun"
     t.bigint "tax_classification_id"
     t.bigint "group_id"
     t.bigint "family_id"

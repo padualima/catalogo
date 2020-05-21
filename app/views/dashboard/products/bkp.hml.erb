@@ -1,0 +1,7 @@
+            <td>
+            <% if product.generics.present? %>
+              <% product.generics.each do |generic| %>
+                <%= generic.product_description %>
+              <% end %>
+            <% end %>
+            </td>
