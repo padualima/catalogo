@@ -1,0 +1,47 @@
+<%= form_with(model: [:dashboard, @product], local: true, multipart: true) do |f| %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= collection_select(:product, :group_id, Group.all, :id, :group_description, prompt: "Selecione", class:"form-control") %>
+    </div>
+    <div class="form-group col-md-4">
+      <label>Familia</label>
+      <%= collection_select(:product, :family_id, Family.all, :id, :family_description, prompt: "Selecione", class:"form-control") %>
+    </div>
+    <div class="form-group col-md-4">
+      <label>Classificação</label>
+      <%= collection_select(:product, :tax_classification_id, TaxClassification.all, :id, :tax_code, prompt: "Selecione", class:"form-control") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :product_code, 'Código do Produto' %>
+      <%= f.text_field :product_code, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :product_description, 'Descrição do produto' %>
+      <%= f.text_field :product_description, class: "form-control" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :image, 'Imagem' %>
+      <%= f.file_field :image %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :status, 'Ativo' %>
+      <%= f.check_box :status, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :releases, 'Lançamento' %>
+      <%= f.check_box :releases, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :generic_father_id, 'Father' %>
+      <%= f.collection_select :generic_father_id, Product.all, :id, :product_description, {prompt: 'Selecione o líder'} %>
+    </div>
+  </div>
+    <div class="text-center">
+    <%= f.submit class: 'btn btn-success', data: { disable_with: 'Criando....⌛'} %>
+    <%= link_to 'Cancelar', dashboard_products_path, class: "btn btn-danger ml-1" %>
+  </div>
+<% end %>

@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <h1 class="h3 mb-4 text-gray-800">Lista de produtos</h1>
+  <%= link_to 'Cadastrar', new_dashboard_product_path, class:"btn btn-success mb-2" %>
+  <% if @products.empty? %>
+    <div class="alert alert-danger" role="alert">
+      Nenhum produto cadastrado!
+    </div>
+  <% else %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Descrição grupo</th>
+          <th scope="col">Descrição familia</th>
+          <th scope="col">Código produto</th>
+          <th scope="col">Descrição produto</th>
+          <th scope="col">Alterar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <th scope="row"><%= product.id %></th>
+            <td><%= product.group.group_description %></td>
+            <td><%= product.family.family_description %></td>
+            <td>
+            <% if product.generics.present? %>
+              <% product.generics.each do |generic| %>
+                <%= generic.product_description %>
+              <% end %>
+            <% end %>
+            </td>
+            <td><%= product.product_description %></td>
+            <td><%= link_to 'Editar', edit_dashboard_product_path(product), class:"btn btn-secondary" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
