@@ -14,7 +14,7 @@ class Product < ApplicationRecord
   validate :image_validation
 
   def image_validation
-    if image.attached?
+    if respond_to?(:image) && image.attached?
       if image.blob.byte_size > 2000000
         image.purge
         errors[:base] << 'Tamanho maximo 2MB'
