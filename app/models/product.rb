@@ -26,4 +26,6 @@ class Product < ApplicationRecord
   end
 
   scope :releases_home, -> {where(releases: true)}
+  scope :releases_true, -> {where(releases: true)}
+  scope :status_true, -> {where(status: true)}
 end

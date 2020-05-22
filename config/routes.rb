@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :product_details, only: %i{show}
+  resources :dashboard, only: %i{index}
   namespace :dashboard do
     resources :groups, except: %i{show}
     resources :families, except: %i{show}
