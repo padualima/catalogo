@@ -1,6 +1,6 @@
 class Dashboard::FamiliesController < DashboardController
   layout 'dashboard'
-  before_action :set_families, only: %i[edit update destroy]
+  before_action :set_families, only: %i[edit update]
 
   def index
     @families = Family.all
@@ -29,15 +29,6 @@ class Dashboard::FamiliesController < DashboardController
     else
       flash.now[:alert] = @family.errors.full_messages.to_sentence
       render :edit
-    end
-  end
-
-  def destroy
-    if @family.destroy
-      redirect_to dashboard_families_path, notice: "#{@family.family_description} excluida com sucesso!"    
-    else
-      flash.now[:alert] = @family.errors.full_messages.to_sentence
-      render :index
     end
   end
 

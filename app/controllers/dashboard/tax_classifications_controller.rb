@@ -1,6 +1,6 @@
 class Dashboard::TaxClassificationsController < DashboardController
   layout 'dashboard'
-  before_action :set_tax_classification, only: %i[edit update destroy]
+  before_action :set_tax_classification, only: %i[edit update]
   
   def index
     @tax_classifications = TaxClassification.all
@@ -31,15 +31,6 @@ class Dashboard::TaxClassificationsController < DashboardController
       render :edit
     end
   end
-
-  def destroy
-    if @tax_classification.destroy(tax_classifications_params)
-      redirect_to dashboard_tax_classifications_path, notice: "Classificação apagada com sucesso!"
-    else
-      flash.now[:alert] = @tax_classification.errors.full_messages.to_sentence
-      render :edit
-    end
-  end    
 
   private
 

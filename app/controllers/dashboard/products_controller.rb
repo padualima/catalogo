@@ -1,6 +1,6 @@
 class Dashboard::ProductsController < DashboardController
   layout 'dashboard'
-  before_action :set_products, only: %i[edit update destroy]
+  before_action :set_products, only: %i[edit update]
   
   def index
     @products = Product.all
@@ -29,15 +29,6 @@ class Dashboard::ProductsController < DashboardController
     else
       flash.now[:alert] = @product.errors.full_messages.to_sentence
       render :edit
-    end
-  end
-
-  def destroy
-    if @product.destroy
-      redirect_to dashboard_products_path, notice: "#{@product.product_description} excluido com sucesso!"
-    else
-      flash.now[:alert] = @product.errors.full_messages.to_sentence
-      render :index
     end
   end
 

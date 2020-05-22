@@ -1,6 +1,6 @@
 class Dashboard::GroupsController < DashboardController
   layout 'dashboard'
-  before_action :set_groups, only: %i[edit update destroy]
+  before_action :set_groups, only: %i[edit update]
 
   def index
     @groups = Group.all
@@ -29,15 +29,6 @@ class Dashboard::GroupsController < DashboardController
     else
       flash.now[:alert] = @group.errors.full_messages.to_sentence
       render :edit
-    end
-  end
-
-  def destroy
-    if @group.destroy
-      redirect_to dashboard_groups_path, notice: "#{@group.group_description} excluido com sucesso!"    
-    else
-      flash.now[:alert] = @group.errors.full_messages.to_sentence
-      render :index
     end
   end
 
