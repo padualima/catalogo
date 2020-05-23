@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+lines = [
+    "Nestlé",
+    "Purina",
+    "Food",
+    "Garoto"
+    ]
+
+    lines.each do |line|
+        Line.find_or_create_by(line_description: line)
+    end
