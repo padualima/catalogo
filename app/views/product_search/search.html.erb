@@ -1,0 +1,15 @@
+<h2 class="text-muted">
+  <% if @products.any? %>
+    <%= @products.count %> resultados encontrados:
+  <% else %>
+    Nenhum Resultado encontrado
+  <% end %>
+</h2>
+
+<% @products.each do |product| %>
+  <ul>
+    <li>
+      <%= @product.product_description %>
+    </li>
+  </ul>
+<% end %>

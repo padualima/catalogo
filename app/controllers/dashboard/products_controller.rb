@@ -37,7 +37,7 @@ class Dashboard::ProductsController < DashboardController
 
 
   def set_products
-    @product = Product.find(params[:id])
+    @product = Product.friendly.find(params[:id])
   end
 
   def products_params
